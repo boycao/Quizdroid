@@ -11,7 +11,7 @@ class TopicOverviewActivity : AppCompatActivity(){
         setContentView(R.layout.activity_topicoverview)
     }
 
-    val quizData : JSONObject = JSONObject("""
+    val topicData : JSONObject = JSONObject("""
         "Math":{
             "Description" : " This is a Math quiz that helps measure your basic Math knowledge"
             "NumberOfQuestions" : "4"
