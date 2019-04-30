@@ -6,16 +6,21 @@
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView2" tools:layout_editor_absoluteY="186dp"
+            android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription" tools:layout_editor_absoluteY="186dp"
             tools:layout_editor_absoluteX="143dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView3" tools:layout_editor_absoluteY="269dp"
+            android:layout_height="wrap_content" android:id="@+id/textViewQuestionNumber" tools:layout_editor_absoluteY="269dp"
             tools:layout_editor_absoluteX="143dp"/>
     <Button
             android:text="Button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button2" tools:layout_editor_absoluteY="392dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="392dp"
             tools:layout_editor_absoluteX="126dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
+            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicName"/>
 </android.support.constraint.ConstraintLayout>
