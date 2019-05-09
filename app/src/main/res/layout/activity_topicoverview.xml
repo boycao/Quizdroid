@@ -4,22 +4,22 @@
                                              android:layout_height="match_parent">
 
     <TextView
-            android:text="TextView"
+            android:text="Topic Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription" tools:layout_editor_absoluteY="186dp"
             tools:layout_editor_absoluteX="143dp"/>
     <TextView
-            android:text="TextView"
+            android:text="Number of Questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewQuestionNumber" tools:layout_editor_absoluteY="269dp"
             tools:layout_editor_absoluteX="143dp"/>
     <Button
-            android:text="Button"
+            android:text="Begin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="392dp"
             tools:layout_editor_absoluteX="126dp"/>
     <TextView
-            android:text="TextView"
+            android:text="Topic Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
             tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicName"/>

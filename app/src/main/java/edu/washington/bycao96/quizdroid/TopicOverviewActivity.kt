@@ -9,15 +9,37 @@ import org.json.JSONObject
 
 
 class TopicOverviewActivity : AppCompatActivity(){
+    //Declare the global variable
+    private val topicData : JSONObject = JSONObject("""
+        "Math":{
+            "Description" : " This is a Math quiz that helps measure your basic Math knowledge"
+            "NumberOfQuestions" : "4"
+        },
+        "OO Programming":{
+            "Description" : " This is a Object-Oriented quiz that measures your knowledge about OO Programming"
+            "NumberOfQuestions" : "4"
+        },
+        "Marvel":{
+            "Description" : " How much do you know about Marvel hero?"
+            "NumberOfQuestions" : "4"
+        },
+        "Game of Throne":{
+            "Description" : " Are you a real GoT fan?"
+            "NumberOfQuestions" : "4"
+        }
+    """.trimIndent())
+    private var topicName : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topicoverview)
 
-        //Topic name set up
+        //Get the topic name chosen
         val topic = getIntent().getStringExtra("Topic")
+
         val topicNameTextView = findViewById<TextView>(R.id.textViewTopicName)
         topicNameTextView.setText("$topic Overview")
-        val topicName = topic
+        topicName = topic
 
         //Description set up
         val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("Description") as String
@@ -32,32 +54,15 @@ class TopicOverviewActivity : AppCompatActivity(){
     }
 
         //Topic database setup
-    val topicData : JSONObject = JSONObject("""
-        "Math":{
-            "Description" : " This is a Math quiz that helps measure your basic Math knowledge"
-            "NumberOfQuestions" : "4"
-        },
-        "OO Programming":{
-            "Description" : " This is a Object-Oriented quiz that measures your knowledge about OO Programming"
-            "NumberOfQuestions" : "5"
-        },
-        "Marvel":{
-            "Description" : " How much do you know about Marvel hero?"
-            "NumberOfQuestions" : "4"
-        },
-        "Game of Throne":{
-            "Description" : " Are you a real GoT fan?"
-            "NumberOfQuestions" : "4"
-        }
-    """.trimIndent())
+
 
     val numCorrect : Int =0
 
-    fun toQuiz(){
+    fun beginQuiz(){
         val beginButton = findViewById<Button>(R.id.buttonBegin)
         beginButton.setOnClickListener(){
-            val marvelIntent = Intent(this@TopicOverviewActivity,QuizActivity::class.java)
-            intent.putExtra("Topic","topicName")
+            val intent = Intent(this@TopicOverviewActivity,QuizActivity::class.java)
+            intent.putExtra("Topic",topicName)
             startActivity(intent)
         }
     }}

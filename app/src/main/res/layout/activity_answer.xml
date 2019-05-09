@@ -4,23 +4,35 @@
                                              android:layout_height="match_parent">
 
     <TextView
-            android:text="TextView"
+            android:text="Result"
             android:layout_width="wrap_content"
-            android:layout_height="68dp" android:id="@+id/textView4" tools:layout_editor_absoluteY="193dp"
+            android:layout_height="68dp" android:id="@+id/textViewResult" tools:layout_editor_absoluteY="145dp"
             tools:layout_editor_absoluteX="155dp"/>
     <TextView
-            android:text="TextView"
+            android:text="Your Answer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="306dp"
-            tools:layout_editor_absoluteX="155dp" android:id="@+id/textView5"/>
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="278dp"
+            tools:layout_editor_absoluteX="155dp" android:id="@+id/textViewYourAnswer"/>
+    <TextView
+            android:text="Correct Answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewCorrectAnswer"/>
+    <TextView
+            android:text="Number Correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewNumberCorrect"/>
+    <TextView
+            android:text="Questions Left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewQuestionsLeft"/>
+    <Button
+            android:text="Next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="529dp"
+            tools:layout_editor_absoluteX="140dp" android:id="@+id/buttonNextQuestion"/>
     <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:layout_editor_absoluteY="529dp"
-            tools:layout_editor_absoluteX="140dp" android:id="@+id/button3"/>
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="528dp"
             tools:layout_editor_absoluteX="140dp" android:id="@+id/button4"/>
 </android.support.constraint.ConstraintLayout>
