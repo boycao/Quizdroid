@@ -4,6 +4,11 @@
                                              android:layout_height="match_parent">
 
     <TextView
+            android:text="Topic Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
+            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicName"/>
+    <TextView
             android:text="Topic Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription"
@@ -20,9 +25,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="490dp"
             tools:layout_editor_absoluteX="150dp"/>
-    <TextView
-            android:text="Topic Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
-            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicName"/>
+
 </android.support.constraint.ConstraintLayout>

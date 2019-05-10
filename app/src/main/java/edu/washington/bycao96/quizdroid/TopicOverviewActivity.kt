@@ -19,7 +19,7 @@ class TopicOverviewActivity : AppCompatActivity(){
             "Description" : " This is a Math quiz that helps measure your basic Math knowledge"
             "NumberOfQuestions" : "4"
         },
-        "OO Programming":{
+        "Code":{
             "Description" : " This is a Object-Oriented quiz that measures your knowledge about OO Programming"
             "NumberOfQuestions" : "4"
         },
@@ -45,14 +45,14 @@ class TopicOverviewActivity : AppCompatActivity(){
 
 
         //Description set up
-        val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("Description") as String
+        val desc = topicData.getJSONObject(topic).get("Description") as String
         val descTextView = findViewById<TextView>(R.id.textViewTopicDescription)
-        descTextView.setText(desc)
+        descTextView.setText("Description: $desc")
 
         //Number of questions set up
-        val qNum = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
+        val qNum = topicData.getJSONObject(topic).get("NumberOfQuestions") as String
         val gNumTextView = findViewById<TextView>(R.id.textViewQuestionNumber)
-        gNumTextView.setText("The total questions number is $qNum")
+        gNumTextView.setText("The total question number is $qNum")
 
         val beginButton = findViewById<Button>(R.id.buttonBegin)
         beginButton.setOnClickListener(){

@@ -211,10 +211,9 @@ class QuizActivity : AppCompatActivity(){
     """.trimMargin())
     // Specify the topicname, totalquestion number, correctanswer number, currentquestion index, currentanswer, correctanswer
     private var topic : String = ""
-    private var totalQuestions : Any = 0
     private var numberCorrect : Int = 0
     private var currentIndex : Int = 0
-    private var currentAnswer: String = ""
+    private var currentAnswer : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -230,11 +229,11 @@ class QuizActivity : AppCompatActivity(){
 
         //Setup the questionDescription
         val questionView: TextView = findViewById(R.id.textViewQuestionDesc)
-        val question = questions.getJSONObject(currentIndex).get("Question")
+        val question = questions.getJSONObject(currentIndex).getJSONObject("Question") as String
         questionView.setText("$question")
 
         //Setup the RadioGroup for Choices
-        currentIndex = getIntent().getIntExtra("QuestionIndex", 0)
+        currentIndex = getIntent().getIntExtra("QUESTION_INDEX", 0)
         val choiceArray = questions.getJSONObject(currentIndex).getJSONArray("Choices")
         val choice1 : RadioButton = findViewById(R.id.buttonChoice1)
         val choice2 : RadioButton = findViewById(R.id.buttonChoice2)
@@ -258,22 +257,28 @@ class QuizActivity : AppCompatActivity(){
 
         //Prepare for the output intent, totalquestions, correctanswer, youranswer, result, correctnumber, index
         val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
-        intent.putExtra("TOPIC", topic)
-        totalQuestions = quizData.getJSONObject(topic).get("NumberOfQuestions")
-        numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
-        val correctAnswer = questions.getJSONObject(currentIndex).get("Answer")
 
+        intent.putExtra("TOPIC", topic)
+
+        intent.putExtra("YOUR_ANSWER", currentAnswer)
+
+        var correctAnswer = questions.getJSONObject(currentIndex).getJSONObject("Answer") as String
+        numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
         if(currentAnswer.equals(correctAnswer)){
             numberCorrect ++
             intent.putExtra("RESULT", "Correct!")
         }else{
             intent.putExtra("RESULT", "Incorrect!")
         }
-        intent.putExtra("NumberCorrect", numberCorrect)
-        intent.putExtra("TOTAL_QUESTIONS", parseInt(totalQuestions.toString()))
-        intent.putExtra("CORRECT_ANSWER", correctAnswer.toString())
-        intent.putExtra("YOUR_ANSWER", currentAnswer)
+        intent.putExtra("CORRECT_ANSWER", correctAnswer)
+
+        var totalQuestions = quizData.getJSONObject(topic).getJSONObject("NumberOfQuestions") as String
+        intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
+
+
+        intent.putExtra("NUMBER_CORRECT", numberCorrect)
+
+
         startActivity(intent)
         }
     }
-}

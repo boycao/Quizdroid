@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val mathButton = findViewById<View>(R.id.buttonMath)
         mathButton.setOnClickListener(){
             val mathIntent = Intent(this@MainActivity, TopicOverviewActivity::class.java )
-            intent.putExtra("TOPIC","Math")
+            mathIntent.putExtra("TOPIC","Math")
             startActivity(mathIntent)
         }
 
@@ -25,21 +25,21 @@ class MainActivity : AppCompatActivity() {
         val codeButton = findViewById<View>(R.id.buttonProgramming)
         codeButton.setOnClickListener(){
             val codeIntent = Intent(this@MainActivity,TopicOverviewActivity::class.java)
-            intent.putExtra("TOPIC","Code")
+            codeIntent.putExtra("TOPIC","Code")
             startActivity(codeIntent)
         }
 
         val goTButton = findViewById<View>(R.id.buttonGoT)
         goTButton.setOnClickListener(){
             val goTIntent = Intent(this@MainActivity, TopicOverviewActivity::class.java)
-            intent.putExtra("TOPIC","GoT")
+            goTIntent.putExtra("TOPIC","GoT")
             startActivity(goTIntent)
         }
 
         val marvelButton = findViewById<View>(R.id.buttonMarvel)
         marvelButton.setOnClickListener(){
             val marvelIntent = Intent(this@MainActivity,TopicOverviewActivity::class.java)
-            intent.putExtra("TOPIC","Marvel")
+            marvelIntent.putExtra("TOPIC","Marvel")
             startActivity(marvelIntent)
         }
 
