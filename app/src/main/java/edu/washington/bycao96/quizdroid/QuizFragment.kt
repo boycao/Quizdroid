@@ -14,19 +14,10 @@ import android.widget.TextView
 import org.json.JSONObject
 
     class QuizFragment : Fragment(){
-
-        var listener : submitAnswerListener? = null
-        interface submitAnswerListener{
-            fun submitAnswer()
-        }
-
-        private val topic = getIntent().getStringExtra("Topic")
-        // Parse in the specific question set for the intent name topic
-        private val questions = quizData.getJSONObject(topic.replace("\\s".toRegex(), "")).getJSONArray("Questions")
-        private var totalQuestions : Int = quizData.getJSONObject(topic.replace("\\s".toRegex(),"")).getJSONObject("NumberOfQuestions")
-        private var numberCorrect : Int = getIntent().getIntExtra("NUMBER_CORRECT", 0)
-        private val questionIndex : Int = getIntent().getIntExtra("QUESTION_INDEX", 0)
-        private var currentAnswer: String = ""
+        private val topic : String = ""
+        private val questionIndex : Int = 0
+        private var totalQuestions : Int = 0
+            // Build the JSON for quiz
         private val quizData : JSONObject = JSONObject("""{
             |"Math":{
             |   "NumberOfQuestions" : "4",
@@ -223,8 +214,12 @@ import org.json.JSONObject
 
         """.trimMargin())
 
+        //set the listener to default
+        var listener : submitAnswerListener? = null
 
-
+        interface submitAnswerListener{
+            fun submitAnswer()
+        }
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -251,8 +246,7 @@ import org.json.JSONObject
                 currentAnswer = checked.text.toString()
             }))
             */
-
-        
+        /*
         /*
             Display the question element from the jasonarray, and the questionindex
         */
@@ -276,37 +270,32 @@ import org.json.JSONObject
             choice3.setText(choices[2].toString())
             choice4.setText(choices[3].toString())
         }
-
+        */
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            return super.onCreateView(inflater, container, savedInstanceState)
-        }
 
-        fun submitToNextQuestion(){
-            if(currentAnswer !=null || currentAnswer.length()!=0){
-                val answer = questions.getJSONObject(currentIndex).get("Answer")
-                var isCorrect : Boolean = false;
-                if(currentAnswer.equals(answer)){
-                    isCorrect = true;
-                    numberCorrect ++
-                }
-                val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
-                if (isCorrect) {
-                    intent.putExtra("RESULT", "Correct!")
-                } else {
-                    intent.putExtra("RESULT", "Incorrect!")
-                }
-                intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
-                intent.putExtra("TOPIC", topic)
+            //Inflate the layout
+            val view = inflater.inflate(R.layout.FragmentQuiz, container, false)
+            val questions = JSONObject(topic)
+            val questionView: TextView = view.findViewById(R.id.textViewQuestionDesc)
+            val question = questions.getJSONObject("questionIndex").get("Question")
+            questionView.setText("$question")
 
-                intent.putExtra("CORRECT_ANSWER", answer.toString())
-                intent.putExtra("YOUR_ANSWER", currentAnswer)
-                startActivity(intent)
-            }
-
+            val choices = questions.getJSONObject("questionIndex").getJSONArray("Choices")
+            val choice1 : RadioButton = view.findViewById(R.id.ButtonChoice1)
+            val choice2 : RadioButton = view.findViewById(R.id.ButtonChoice2)
+            val choice3 : RadioButton = view.findViewById(R.id.ButtonChoice3)
+            val choice4 : RadioButton = view.findViewById(R.id.ButtonChoice4)
 
         }
+
 
         companion object {
-            fun newInstancez
+            fun newInstance(topic : String, questionIndex : Int) =
+                    QuizFragment().apply {
+                        arguments = Bundle().apply{
+                            putString(TopicName, topic)
+                            putInt(QuestionIndex, questionIndex)
+                        }
+                    }
         }
     }

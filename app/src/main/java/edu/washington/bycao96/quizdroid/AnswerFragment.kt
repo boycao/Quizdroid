@@ -14,7 +14,7 @@ import java.lang.ClassCastException
 class AnswerFragment : Fragment(){
 
     private var topic: String = ""
-    private var totalQuestion: Int = 0
+    private var totalQuestions: Int = 0
     private var questionIndex: Int = 0
     private var currAnswer: String = ""
     private var corrAnswer: String = ""
@@ -30,7 +30,7 @@ class AnswerFragment : Fragment(){
         super.onCreate(savedInstanceState)
         arguments?.let {
             topic = it.getString(TopicName)
-            totalQuestion = it.getInt(TotalQuestion)
+            totalQuestions = it.getInt(TotalQuestion)
             questionIndex = it.getInt(QuestionIndex)
             currAnswer = it.getString(CurrAnswer)
             corrAnswer = it.getString(CorrAnswer)
@@ -48,22 +48,21 @@ class AnswerFragment : Fragment(){
     }
     //construct the layout
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
         //inflate the layout
-        val view = inflater.inflate(R.layout.fragmentAnswer,container, false)
+        val view = inflater.inflate(R.layout.FragmentAnswer,container, false)
         //render components
-        var currAnswerTextView : TextView = view.findViewById(R.id.TextViewCurrAnswer)
-        var corrAnswerTextView : TextView = view.findViewById(R.id.TextViewCorrAnswer)
+        var currAnswerTextView : TextView = view.findViewById(R.id.textViewYourAnswer)
+        var corrAnswerTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
 
 
 
         //Setup the continueButton display status and next step
         var continueButton : Button = view.findViewById(R.id.ButtonContinue)
-        if(questionIndex==totalQuestion)
+        if(questionIndex==totalQuestions)
             continueButton.setText("Finish")
 
         continueButton.setOnClickListener{
-            if(questionIndex==totalQuestion)
+            if(questionIndex==totalQuestions)
                 startActivity(Intent(activity, MainActivity()::class.java))
             else (activity as continueQuestionListener).continueQuestion()
         }
