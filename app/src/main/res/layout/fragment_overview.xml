@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                             android:layout_height="match_parent" android:id="FragmentOverview">
+                                             android:layout_height="match_parent" tools:context="OverviewFragment">
 
+    <TextView
+            android:text="Topic Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
+            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicTitle"/>
     <TextView
             android:text="Topic Description"
             android:layout_width="wrap_content"
@@ -18,9 +23,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="392dp"
             tools:layout_editor_absoluteX="126dp"/>
-    <TextView
-            android:text="Topic Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
-            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicTitle"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -1,41 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
-    <TextView
-            android:text="Quiz Topic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewQuizTopic" tools:layout_editor_absoluteY="41dp"
-            tools:layout_editor_absoluteX="154dp"/>
-    <TextView
-            android:text="Question Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewQuestionDesc" tools:layout_editor_absoluteY="93dp"
-            tools:layout_editor_absoluteX="154dp"/>
-    <RadioGroup
-            android:layout_width="408dp" android:id="@+id/RadioGroupChoices"
-            android:layout_height="413dp" tools:layout_editor_absoluteY="158dp" tools:layout_editor_absoluteX="1dp">
-        <RadioButton
-                android:text="Choice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/ButtonChoice1" android:layout_weight="1"/>
-        <RadioButton
-                android:text="Choice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/ButtonChoice2" android:layout_weight="1"/>
-        <RadioButton
-                android:text="Choice3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/ButtonChoice3" android:layout_weight="1"/>
-        <RadioButton
-                android:text="Choice4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/ButtonChoice4" android:layout_weight="1"/>
-    </RadioGroup>
-    <Button
-            android:text="Submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/buttonSubmit" android:layout_weight="1"
-            tools:layout_editor_absoluteY="603dp" tools:layout_editor_absoluteX="146dp"/>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

@@ -14,28 +14,10 @@
             tools:layout_editor_absoluteY="133dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="32dp" android:textSize="24sp"/>
-    <LinearLayout
-            android:orientation="vertical"
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="261dp"
-            tools:layout_editor_absoluteX="0dp">
-        <Button
-                android:text="Math"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonMath"
-        />
-        <Button
-                android:text="Programming"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonProgramming"/>
-        <Button
-                android:text="Game of Throne"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonGoT"/>
-        <Button
-                android:text="Marvel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonMarvel"/>
-    </LinearLayout>
+            android:layout_height="match_parent">
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

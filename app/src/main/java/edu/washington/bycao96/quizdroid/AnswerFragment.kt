@@ -49,7 +49,7 @@ class AnswerFragment : Fragment(){
     //construct the layout
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //inflate the layout
-        val view = inflater.inflate(R.layout.FragmentAnswer,container, false)
+        val view = inflater.inflate(R.layout.fragment_answer,container, false)
         //render components
         var currAnswerTextView : TextView = view.findViewById(R.id.textViewYourAnswer)
         var corrAnswerTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
@@ -57,7 +57,7 @@ class AnswerFragment : Fragment(){
 
 
         //Setup the continueButton display status and next step
-        var continueButton : Button = view.findViewById(R.id.ButtonContinue)
+        var continueButton : Button = view.findViewById(R.id.buttonContinue)
         if(questionIndex==totalQuestions)
             continueButton.setText("Finish")
 

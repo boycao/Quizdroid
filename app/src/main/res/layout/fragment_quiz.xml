@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent" tools:context="QuizFragment">
+
+    <TextView
+            android:text="Quiz Topic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewQuizTopic" tools:layout_editor_absoluteY="41dp"
+            tools:layout_editor_absoluteX="154dp"/>
+    <TextView
+            android:text="Question Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewQuestionDesc" tools:layout_editor_absoluteY="93dp"
+            tools:layout_editor_absoluteX="154dp"/>
+    <RadioGroup
+            android:layout_width="408dp" android:id="@+id/radioGroupChoices"
+            android:layout_height="413dp" tools:layout_editor_absoluteY="158dp" tools:layout_editor_absoluteX="1dp">
+        <RadioButton
+                android:text="Choice1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice1" android:layout_weight="1"/>
+        <RadioButton
+                android:text="Choice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice2" android:layout_weight="1"/>
+        <RadioButton
+                android:text="Choice3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice3" android:layout_weight="1"/>
+        <RadioButton
+                android:text="Choice4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice4" android:layout_weight="1"/>
+    </RadioGroup>
+    <Button
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/buttonSubmit" android:layout_weight="1"
+            tools:layout_editor_absoluteY="603dp" tools:layout_editor_absoluteX="146dp"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline2"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.46958637"
+                                          app:layout_constraintStart_toStartOf="parent"
+                                          android:layout_marginLeft="50dp" android:layout_marginStart="50dp"
+                                          app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="50dp"
+                                          android:layout_marginRight="50dp"/>
+</android.support.constraint.ConstraintLayout>

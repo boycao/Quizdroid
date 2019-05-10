@@ -274,17 +274,17 @@ import org.json.JSONObject
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
             //Inflate the layout
-            val view = inflater.inflate(R.layout.FragmentQuiz, container, false)
+            val view = inflater.inflate(R.layout.fragment_quiz, container, false)
             val questions = JSONObject(topic)
             val questionView: TextView = view.findViewById(R.id.textViewQuestionDesc)
             val question = questions.getJSONObject("questionIndex").get("Question")
             questionView.setText("$question")
 
             val choices = questions.getJSONObject("questionIndex").getJSONArray("Choices")
-            val choice1 : RadioButton = view.findViewById(R.id.ButtonChoice1)
-            val choice2 : RadioButton = view.findViewById(R.id.ButtonChoice2)
-            val choice3 : RadioButton = view.findViewById(R.id.ButtonChoice3)
-            val choice4 : RadioButton = view.findViewById(R.id.ButtonChoice4)
+            val choice1 : RadioButton = view.findViewById(R.id.buttonChoice1)
+            val choice2 : RadioButton = view.findViewById(R.id.buttonChoice2)
+            val choice3 : RadioButton = view.findViewById(R.id.buttonChoice3)
+            val choice4 : RadioButton = view.findViewById(R.id.buttonChoice4)
 
         }
 
