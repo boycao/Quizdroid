@@ -1,8 +1,12 @@
 package edu.washington.bycao96.quizdroid
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.Layout
+import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import org.json.JSONObject
@@ -35,34 +39,35 @@ class TopicOverviewActivity : AppCompatActivity(){
         setContentView(R.layout.activity_topicoverview)
 
         //Get the topic name chosen
-        val topic = getIntent().getStringExtra("Topic")
+        topicName = getIntent().getStringExtra("Topic")
 
+
+
+    }
+
+    override fun onCreateView(name: String?, context: Context?, attrs: AttributeSet?): View? {
+        val view : layout = findViewById<Layout>(R.layout.activity_topicoverview)
         val topicNameTextView = findViewById<TextView>(R.id.textViewTopicName)
-        topicNameTextView.setText("$topic Overview")
-        topicName = topic
+        topicNameTextView.setText("$topicName Overview")
+
 
         //Description set up
-        val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("Description") as String
+        val desc = topicData.getJSONObject(topicName.replace("\\s".toRegex(), "")).get("Description") as String
         val descTextView = findViewById<TextView>(R.id.textViewTopicDescription)
         descTextView.setText(desc)
 
         //Number of questions set up
-        val qNum = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
+        val qNum = topicData.getJSONObject(topicName.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
         val gNumTextView = findViewById<TextView>(R.id.textViewQuestionNumber)
         gNumTextView.setText("The total questions number is $qNum")
 
-    }
-
-        //Topic database setup
-
-
-    val numCorrect : Int =0
-
-    fun beginQuiz(){
         val beginButton = findViewById<Button>(R.id.buttonBegin)
         beginButton.setOnClickListener(){
             val intent = Intent(this@TopicOverviewActivity,QuizActivity::class.java)
             intent.putExtra("Topic",topicName)
             startActivity(intent)
         }
-    }}
+        return view
+    }
+
+}
