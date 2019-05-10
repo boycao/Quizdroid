@@ -6,18 +6,20 @@
     <TextView
             android:text="Topic Description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription" tools:layout_editor_absoluteY="186dp"
+            android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription"
+            tools:layout_editor_absoluteY="227dp"
             tools:layout_editor_absoluteX="143dp"/>
     <TextView
             android:text="Number of Questions"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewQuestionNumber" tools:layout_editor_absoluteY="269dp"
-            tools:layout_editor_absoluteX="143dp"/>
+            android:layout_height="wrap_content" android:id="@+id/textViewQuestionNumber"
+            tools:layout_editor_absoluteY="319dp"
+            tools:layout_editor_absoluteX="138dp"/>
     <Button
             android:text="Begin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="392dp"
-            tools:layout_editor_absoluteX="126dp"/>
+            android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="490dp"
+            tools:layout_editor_absoluteX="150dp"/>
     <TextView
             android:text="Topic Name"
             android:layout_width="wrap_content"

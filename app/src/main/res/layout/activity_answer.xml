@@ -5,19 +5,19 @@
 
     <TextView
             android:text="Result"
-            android:layout_width="wrap_content"
-            android:layout_height="68dp" android:id="@+id/textViewResult" tools:layout_editor_absoluteY="79dp"
-            tools:layout_editor_absoluteX="167dp"/>
+            android:layout_width="48dp"
+            android:layout_height="26dp" android:id="@+id/textViewResult" tools:layout_editor_absoluteY="165dp"
+            tools:layout_editor_absoluteX="172dp"/>
     <TextView
             android:text="Your Answer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="253dp"
+            android:layout_height="22dp" tools:layout_editor_absoluteY="253dp"
             tools:layout_editor_absoluteX="65dp" android:id="@+id/textViewYourAnswer"/>
     <TextView
             android:text="Correct Answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewCorrectAnswer"
-            tools:layout_editor_absoluteY="260dp" tools:layout_editor_absoluteX="214dp"/>
+            tools:layout_editor_absoluteY="253dp" tools:layout_editor_absoluteX="220dp"/>
     <TextView
             android:text="Number Correct"
             android:layout_width="wrap_content"
