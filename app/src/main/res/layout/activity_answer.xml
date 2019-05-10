@@ -6,33 +6,31 @@
     <TextView
             android:text="Result"
             android:layout_width="wrap_content"
-            android:layout_height="68dp" android:id="@+id/textViewResult" tools:layout_editor_absoluteY="145dp"
-            tools:layout_editor_absoluteX="155dp"/>
+            android:layout_height="68dp" android:id="@+id/textViewResult" tools:layout_editor_absoluteY="79dp"
+            tools:layout_editor_absoluteX="167dp"/>
     <TextView
             android:text="Your Answer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="278dp"
-            tools:layout_editor_absoluteX="155dp" android:id="@+id/textViewYourAnswer"/>
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="253dp"
+            tools:layout_editor_absoluteX="65dp" android:id="@+id/textViewYourAnswer"/>
     <TextView
             android:text="Correct Answer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewCorrectAnswer"/>
+            android:layout_height="wrap_content" android:id="@+id/textViewCorrectAnswer"
+            tools:layout_editor_absoluteY="260dp" tools:layout_editor_absoluteX="214dp"/>
     <TextView
             android:text="Number Correct"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewNumberCorrect"/>
+            android:layout_height="wrap_content" android:id="@+id/textViewNumberCorrect"
+            tools:layout_editor_absoluteY="388dp" tools:layout_editor_absoluteX="65dp"/>
     <TextView
             android:text="Questions Left"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textViewQuestionsLeft"/>
+            android:layout_height="wrap_content" android:id="@+id/textViewQuestionsLeft"
+            tools:layout_editor_absoluteY="388dp" tools:layout_editor_absoluteX="220dp"/>
     <Button
             android:text="Next"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="529dp"
-            tools:layout_editor_absoluteX="140dp" android:id="@+id/buttonNextQuestion"/>
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="529dp"
-            tools:layout_editor_absoluteX="140dp" android:id="@+id/button4"/>
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="536dp"
+            tools:layout_editor_absoluteX="153dp" android:id="@+id/buttonNextQuestion"/>
 </android.support.constraint.ConstraintLayout>

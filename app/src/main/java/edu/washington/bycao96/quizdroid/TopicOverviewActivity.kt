@@ -27,47 +27,39 @@ class TopicOverviewActivity : AppCompatActivity(){
             "Description" : " How much do you know about Marvel hero?"
             "NumberOfQuestions" : "4"
         },
-        "Game of Throne":{
+        "GoT":{
             "Description" : " Are you a real GoT fan?"
             "NumberOfQuestions" : "4"
         }
     """.trimIndent())
-    private var topicName : String = ""
+    private var topic : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topicoverview)
 
         //Get the topic name chosen
-        topicName = getIntent().getStringExtra("Topic")
-
-
-
-    }
-
-    override fun onCreateView(name: String?, context: Context?, attrs: AttributeSet?): View? {
-        val view : layout = findViewById<Layout>(R.layout.activity_topicoverview)
+        topic = getIntent().getStringExtra("TOPIC")
         val topicNameTextView = findViewById<TextView>(R.id.textViewTopicName)
-        topicNameTextView.setText("$topicName Overview")
+        topicNameTextView.setText("$topic Overview")
 
 
         //Description set up
-        val desc = topicData.getJSONObject(topicName.replace("\\s".toRegex(), "")).get("Description") as String
+        val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("Description") as String
         val descTextView = findViewById<TextView>(R.id.textViewTopicDescription)
         descTextView.setText(desc)
 
         //Number of questions set up
-        val qNum = topicData.getJSONObject(topicName.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
+        val qNum = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
         val gNumTextView = findViewById<TextView>(R.id.textViewQuestionNumber)
         gNumTextView.setText("The total questions number is $qNum")
 
         val beginButton = findViewById<Button>(R.id.buttonBegin)
         beginButton.setOnClickListener(){
             val intent = Intent(this@TopicOverviewActivity,QuizActivity::class.java)
-            intent.putExtra("Topic",topicName)
+            intent.putExtra("TOPIC",topic)
             startActivity(intent)
         }
-        return view
     }
 
 }

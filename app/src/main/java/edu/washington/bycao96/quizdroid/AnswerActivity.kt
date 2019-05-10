@@ -14,7 +14,6 @@ class AnswerActivity : AppCompatActivity(){
     private val result = getIntent().getStringExtra("RESULT")
     private val correctAnswer = getIntent().getStringExtra("CORRECT_ANSWER")
     private val yourAnswer = getIntent().getStringExtra("YOUR_ANSWER")
-    private val questionsLeft = getIntent().getIntExtra("QUESTIONS_LEFT",0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,24 +31,22 @@ class AnswerActivity : AppCompatActivity(){
         val numberCorrectView: TextView = findViewById(R.id.textViewNumberCorrect)
         numberCorrectView.setText("You have $numberCorrect out of $numberOfQuestions correct.")
 
-        val questionsLeftView: TextView = findViewById(R.id.textViewQuestionsLeft)
-        numberCorrectView.setText("You still have $questionsLeft left")
+        val progressView: TextView = findViewById(R.id.textViewQuestionsLeft)
+        progressView.setText("Your progress: $questionIndex / $numberOfQuestions")
+
+        val nextBtn: Button = findViewById(R.id.buttonNextQuestion)
 
         if (questionIndex == numberOfQuestions - 1) {
-            val nextBtn: Button = findViewById(R.id.buttonNextQuestion)
             nextBtn.setText("Finish")
-        }
-
-        questionIndex += 1
-
-        if (questionIndex < numberOfQuestions) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            questionIndex += 1
+            nextBtn.setText("Continue")
             val intent = Intent(this, QuizActivity::class.java)
             intent.putExtra("TOPIC", topic)
             intent.putExtra("NUMBER_CORRECT", numberCorrect)
             intent.putExtra("QUESTION_INDEX", questionIndex)
-            startActivity(intent)
-        } else {
-            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

@@ -2,14 +2,18 @@ package edu.washington.bycao96.quizdroid
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.annotation.VisibleForTesting
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import org.json.JSONObject
+import java.lang.Integer.parseInt
 
 class QuizActivity : AppCompatActivity(){
+    //Use JSON for the quizData
     private val quizData : JSONObject = JSONObject("""{
         |"Math":{
         |   "NumberOfQuestions" : "4",
@@ -205,10 +209,9 @@ class QuizActivity : AppCompatActivity(){
         |}
 
     """.trimMargin())
-
+    // Specify the topicname, totalquestion number, correctanswer number, currentquestion index, currentanswer, correctanswer
     private var topic : String = ""
-    // Parse in the specific question set for the intent name topic
-    private var totalQuestions : Int = 0
+    private var totalQuestions : Any = 0
     private var numberCorrect : Int = 0
     private var currentIndex : Int = 0
     private var currentAnswer: String = ""
@@ -216,57 +219,61 @@ class QuizActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
-        topic = getIntent().getStringExtra("Topic")
+        //get the quiz topic value from the intent
+        topic = getIntent().getStringExtra("TOPIC")
+        // setup the topicNameView and assign the topic name to the view
         val topicNameView: TextView = findViewById(R.id.textViewQuizTopic)
         topicNameView.setText(topic)
 
         // Parse in the specific question set for the intent name topic
-        val questions = quizData.getJSONObject(topic.replace("\\s".toRegex(), "")).getJSONArray("Questions")
-        totalQuestions = getIntent().getIntExtra("TotalNumber",0)
-        numberCorrect = getIntent().getIntExtra("NumberCorrect", 0)
-        currentIndex = getIntent().getIntExtra("QuestionIndex", 0)
-        currentAnswer = ""
-        /*
-        val choices: RadioGroup = findViewById(R.id.RadioGroupChoices)
-        choices.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener({group, checkedId ->
-            val checked: RadioButton = findViewById(checkedId)
-            currentAnswer = checked.text.toString()
-        }))*/
+        val questions = quizData.getJSONObject(topic).getJSONArray("Questions")
 
+        //Setup the questionDescription
         val questionView: TextView = findViewById(R.id.textViewQuestionDesc)
         val question = questions.getJSONObject(currentIndex).get("Question")
         questionView.setText("$question")
 
-        val choices = questions.getJSONObject(currentIndex).getJSONArray("Choices")
+        //Setup the RadioGroup for Choices
+        currentIndex = getIntent().getIntExtra("QuestionIndex", 0)
+        val choiceArray = questions.getJSONObject(currentIndex).getJSONArray("Choices")
         val choice1 : RadioButton = findViewById(R.id.buttonChoice1)
         val choice2 : RadioButton = findViewById(R.id.buttonChoice2)
         val choice3 : RadioButton = findViewById(R.id.buttonChoice3)
         val choice4 : RadioButton = findViewById(R.id.buttonChoice4)
-        choice1.setText(choices[0].toString())
-        choice2.setText(choices[1].toString())
-        choice3.setText(choices[2].toString())
-        choice4.setText(choices[3].toString())
+        choice1.setText(choiceArray[0].toString())
+        choice2.setText(choiceArray[1].toString())
+        choice3.setText(choiceArray[2].toString())
+        choice4.setText(choiceArray[3].toString())
 
-        if(currentAnswer !=null || currentAnswer.length()!=0){
-            val answer = questions.getJSONObject(currentIndex).get("Answer")
-            var isCorrect : Boolean = false;
-            if(currentAnswer.equals(answer)){
-                isCorrect = true;
-                numberCorrect ++
-            }
-            val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
-            if (isCorrect) {
-                intent.putExtra("RESULT", "Correct!")
-            } else {
-                intent.putExtra("RESULT", "Incorrect!")
-            }
-            intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
-            intent.putExtra("TOPIC", topic)
+        //Setup the checkListener to monitor the user's choice and set continueButton visible
+        val choices: RadioGroup = findViewById(R.id.RadioGroupChoices)
+        var submitButton : Button = findViewById(R.id.buttonSubmit)
+        submitButton.isClickable = false
+        choices.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener({group, checkedId ->
+            val checked: RadioButton = findViewById(checkedId)
+            currentAnswer = checked.text.toString()
+            submitButton.isClickable = true
 
-            intent.putExtra("CORRECT_ANSWER", answer.toString())
-            intent.putExtra("YOUR_ANSWER", currentAnswer)
-            startActivity(intent)
+        }))
+
+        //Prepare for the output intent, totalquestions, correctanswer, youranswer, result, correctnumber, index
+        val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
+        intent.putExtra("TOPIC", topic)
+        totalQuestions = quizData.getJSONObject(topic).get("NumberOfQuestions")
+        numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
+        val correctAnswer = questions.getJSONObject(currentIndex).get("Answer")
+
+        if(currentAnswer.equals(correctAnswer)){
+            numberCorrect ++
+            intent.putExtra("RESULT", "Correct!")
+        }else{
+            intent.putExtra("RESULT", "Incorrect!")
+        }
+        intent.putExtra("NumberCorrect", numberCorrect)
+        intent.putExtra("TOTAL_QUESTIONS", parseInt(totalQuestions.toString()))
+        intent.putExtra("CORRECT_ANSWER", correctAnswer.toString())
+        intent.putExtra("YOUR_ANSWER", currentAnswer)
+        startActivity(intent)
         }
     }
 }
