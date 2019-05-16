@@ -29,19 +29,19 @@
         <RadioButton
                 android:text="Choice1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/buttonChoice1" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice1" android:textSize="24sp"/>
         <RadioButton
                 android:text="Choice2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/buttonChoice2" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice2" android:textSize="24sp"/>
         <RadioButton
                 android:text="Choice3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/buttonChoice3" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice3" android:textSize="24sp"/>
         <RadioButton
                 android:text="Choice4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/buttonChoice4" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonChoice4" android:textSize="24sp"/>
     </RadioGroup>
     <Button
             android:text="Submit"

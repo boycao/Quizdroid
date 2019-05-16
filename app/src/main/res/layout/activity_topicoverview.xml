@@ -11,7 +11,8 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/textViewTopicDescription"/>
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/textViewTopicDescription"
+            android:textSize="24sp"/>
     <TextView
             android:text="Topic Description"
             android:layout_width="wrap_content"
@@ -19,8 +20,10 @@
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewTopicName" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewQuestionNumber"/>
+            app:layout_constraintBottom_toTopOf="@+id/textViewQuestionNumber"
+            android:textSize="24sp"/>
     <TextView
             android:text="Number of Questions"
             android:layout_width="wrap_content"
@@ -28,8 +31,10 @@
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewTopicDescription"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/buttonBegin"/>
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/buttonBegin"
+    android:textSize="24sp"/>
     <Button
             android:text="Begin"
             android:layout_width="wrap_content"

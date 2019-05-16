@@ -20,107 +20,107 @@ class QuizActivity : AppCompatActivity(){
 
     //Use JSON for the quizData
     private  val quizData: JSONObject = JSONObject("""{
-        |"Math": {
+        |"Sports": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "What is 2 + 2?",
-        |           "Answer": "4",
+        |           "Question": "Which of the following is not an extreme sport?",
+        |           "Answer": "Gymnastics",
         |           "Choices": [
-        |               "2",
-        |               "8",
-        |               "4",
-        |               "13"
+        |               "Gymnastics",
+        |               "Rock Climbing",
+        |               "Skateboarding",
+        |               "Dirt Biking"
         |           ]
         |       },
         |       {
-        |           "Question": "What is 5 * 4?",
-        |           "Answer": "20",
+        |           "Question": "Which of the following athletes is incorrectly matched with his sport?",
+        |           "Answer": "Muhammad Ali - Football",
         |           "Choices": [
-        |               "9",
-        |               "25",
-        |               "1",
-        |               "20"
+        |               "Muhammad Ali - Football",
+        |               "Babe Ruth - Baseball",
+        |               "Michael Jordan - Basketball",
+        |               "Wayne Gretzky - Ice Hockey"
         |           ]
         |       },
         |       {
-        |           "Question": "What is 14 - 7?",
-        |           "Answer": "7",
+        |           "Question": "Based on the number of people who play it, what is the most popular sport in the world?",
+        |           "Answer": "Soccer",
         |           "Choices": [
-        |               "7",
-        |               "21",
-        |               "100",
-        |               "4"
+        |               "Soccer",
+        |               "Golf",
+        |               "Basketball",
+        |               "Bowling"
         |           ]
         |       }
         |   ]
         |},
-        |"Code": {
+        |"Basketball": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "What is light?",
-        |           "Answer": "a wave",
+        |           "Question": "Where do you go, if you get fouled in the act of shooting?",
+        |           "Answer": "Free throw line",
         |           "Choices": [
-        |               "a particle",
-        |               "a wave",
-        |               "an energy",
-        |               "fire"
+        |               "The Bench",
+        |               "Three point line",
+        |               "Free throw line",
+        |               "Half court line"
         |           ]
         |       },
         |       {
-        |           "Question": "How fast does light travel?",
-        |           "Answer": "299,792,458 m/s",
+        |           "Question": "The ball-handler takes three steps without dribbling, what violation did he commit?",
+        |           "Answer": "Traveling",
         |           "Choices": [
-        |               "299,792,458 m/s",
-        |               "466,467,938 m/s",
-        |               "~1 million mph",
-        |               "552,375 mph"
+        |               "Double dribble",
+        |               "Traveling",
+        |               "Goaltending",
+        |               "Carrying"
         |           ]
         |       },
         |       {
-        |           "Question": "What is the unit of measurement for force?",
-        |           "Answer": "Newtons",
+        |           "Question": "Since the 1955-1956 season, the NBA has given out the Most Valuable Player award. Who won the award for the 2008-2009 NBA season?",
+        |           "Answer": "Kobe Bryant",
         |           "Choices": [
-        |               "grams",
-        |               "Newtons",
-        |               "Moles",
-        |               "Kelvin"
+        |               "Kobe Bryant",
+        |               "Dwight Howard",
+        |               "Kevin Garnett",
+        |               "Lebron James"
         |           ]
         |       }
         |   ]
         |},
-        |"Marvel": {
+        |"Soccer": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "Which of these is NOT a Marvel hero?",
-        |           "Answer": "Wonder Woman",
+        |           "Question": "Which club have won the most Serie A titles?",
+        |           "Answer": "Juventus",
         |           "Choices": [
-        |               "Wonder Woman",
-        |               "Ant Man",
-        |               "Spiderman",
-        |               "Thor"
+        |               "Rome",
+        |               "Milan",
+        |               "Internazionale",
+        |               "Juventus"
         |           ]
         |       },
         |       {
-        |           "Question": "What is Captain Marvel's real name?",
-        |           "Answer": "Carol Danvers",
+        |           "Question": "Lionel Messi was born in which city?",
+        |           "Answer": "Buenos Aires",
         |           "Choices": [
-        |               "Mary Jane",
-        |               "Katniss Everdeen",
-        |               "Susan Johnson",
-        |               "Carol Danvers"
+        |               "Rosario",
+        |               "Buenos Aires",
+        |               "Barcelona",
+        |               "Cordoba"
         |           ]
         |       },
         |       {
-        |           "Question": "What is Thor's weapon?",
-        |           "Answer": "a hammer",
+        |           "Question": "In what year did a Dutch team last win a European club competition?",
+        |           "Answer": "2013",
         |           "Choices": [
-        |               "a hammer",
-        |               "a sword",
-        |               "a whip",
-        |               "nunchucks"
+        |               "1978",
+        |               "1997",
+        |               "2002",
+        |               "2013"
         |           ]
         |       }
         |   ]
