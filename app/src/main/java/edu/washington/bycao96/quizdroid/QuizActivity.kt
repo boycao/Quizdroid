@@ -15,7 +15,9 @@ import org.json.JSONObject
 import java.lang.Integer.parseInt
 
 class QuizActivity : AppCompatActivity(){
+
     private  val TAG = "QuizActivity"
+
     //Use JSON for the quizData
     private  val quizData: JSONObject = JSONObject("""{
         |"Math": {
@@ -124,9 +126,9 @@ class QuizActivity : AppCompatActivity(){
         |   ]
         |}
     }""".trimMargin())
-    // Specify the topicname, totalquestion number, correctanswer number, currentquestion index, currentanswer, correctanswer
 
-    private var topicName : String = ""
+    // Specify the topicname, totalquestion number, correctanswer number, currentquestion index, currentanswer, correctanswer
+    private var topic : String = ""
     private var numberCorrect : Int = 0
     private var currentIndex : Int = 0
     private var currentAnswer : String = ""
@@ -134,22 +136,22 @@ class QuizActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
         //get the quiz topic value from the intent
-        val topic = getIntent().getStringExtra("TOPIC")
+        topic = this.intent.getStringExtra("TOPIC")
         // setup the topicNameView and assign the topic name to the view
         val topicNameView: TextView = findViewById(R.id.textViewQuizTopic)
         topicNameView.setText(topic)
-        topicName = topic;
         // Parse in the specific question set for the intent name topic
-        val questions = quizData.getJSONObject(topicName.replace("\\s".toRegex(), "")).getJSONArray("Questions")
+        val questions = quizData.getJSONObject(topic.replace("\\s".toRegex(), "")).getJSONArray("Questions")
 
         //Setup the questionDescription
         val questionView: TextView = findViewById(R.id.textViewQuestionDesc)
+        currentIndex = this.intent.getIntExtra("QUESTION_INDEX",0)
         val question = questions.getJSONObject(currentIndex).getString("Question")
         questionView.setText("$question")
 
         //Setup the RadioGroup for Choices
         //val questions = quizData.getJSONObject(topicName.replace("\\s".toRegex(), "")).getJSONArray("Questions")
-        currentIndex = getIntent().getIntExtra("QUESTION_INDEX", 0)
+
         val choiceArray = questions.getJSONObject(currentIndex).getJSONArray("Choices")
         val choice1 : RadioButton = findViewById(R.id.buttonChoice1)
         val choice2 : RadioButton = findViewById(R.id.buttonChoice2)
@@ -163,45 +165,46 @@ class QuizActivity : AppCompatActivity(){
         //Setup the checkListener to monitor the user's choice and set continueButton visible
         val choices: RadioGroup = findViewById(R.id.RadioGroupChoices)
         var submitButton : Button = findViewById(R.id.buttonSubmit)
-        submitButton.isClickable = false
+        submitButton.isEnabled = false
         choices.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener({group, checkedId ->
             val checked: RadioButton = findViewById(checkedId)
             currentAnswer = checked.text.toString()
-            submitButton.isClickable = true
+            submitButton.isEnabled = true
 
         }))
 
         submitButton.setOnClickListener {
-            val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
+                val intent = Intent(this@QuizActivity, AnswerActivity::class.java)
 
-            intent.putExtra("TOPIC", topicName)
+                intent.putExtra("TOPIC", topic)
 
-            intent.putExtra("YOUR_ANSWER", currentAnswer)
+                intent.putExtra("YOUR_ANSWER", currentAnswer)
 
-            var correctAnswer : String = questions.getJSONObject(currentIndex).getString("Answer")
-            numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
-            if(currentAnswer.equals(correctAnswer)){
-                numberCorrect ++
-                intent.putExtra("RESULT", "Correct!")
-            }else{
-                intent.putExtra("RESULT", "Incorrect!")
-            }
+                var correctAnswer: String = questions.getJSONObject(currentIndex).getString("Answer")
+                numberCorrect = this.intent.getIntExtra("NUMBER_CORRECT", 0)
+                if (currentAnswer.equals(correctAnswer)) {
+                    numberCorrect++
+                    intent.putExtra("RESULT", "Correct!")
+                } else {
+                    intent.putExtra("RESULT", "Incorrect!")
+                }
+            intent.putExtra("QUESTION_INDEX", currentIndex)
+                intent.putExtra("CORRECT_ANSWER", correctAnswer)
 
-            intent.putExtra("CORRECT_ANSWER", correctAnswer)
-
-            var totalQuestions = quizData.getJSONObject(topicName).getString("NumberOfQuestions")
-            intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
-
-
-            intent.putExtra("NUMBER_CORRECT", numberCorrect)
+                var totalQuestions = quizData.getJSONObject(topic).getString("NumberOfQuestions")
+                intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
 
 
-            startActivity(intent)
+                intent.putExtra("NUMBER_CORRECT", numberCorrect)
 
-            Log.e(TAG,topicName)
+
+                startActivity(intent)
+
+                Log.e(TAG, topic)
+
+
+
         }
-
-
 
 
         }

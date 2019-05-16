@@ -7,7 +7,9 @@
             android:text="Quiz Topic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewQuizTopic"
-            android:textSize="24sp" tools:layout_editor_absoluteY="34dp" tools:layout_editor_absoluteX="149dp"/>
+            android:layout_margin="16dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp" />
     <TextView
             android:text="Question Description"
             android:layout_width="wrap_content"
@@ -16,13 +18,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewQuizTopic" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/RadioGroupChoices" android:textSize="18sp"/>
+            app:layout_constraintBottom_toTopOf="@+id/RadioGroupChoices" android:textSize="24sp"/>
     <RadioGroup
-            android:layout_width="408dp" android:id="@+id/RadioGroupChoices"
-            android:layout_height="413dp" android:layout_marginTop="16dp"
+            android:layout_width="wrap_content" android:id="@+id/RadioGroupChoices"
+            android:layout_height="wrap_content" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDesc"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonSubmit">
         <RadioButton
                 android:text="Choice1"
@@ -44,7 +46,7 @@
     <Button
             android:text="Submit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/buttonSubmit" android:layout_weight="1"
+            android:layout_height="wrap_content" android:id="@+id/buttonSubmit"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/RadioGroupChoices" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
