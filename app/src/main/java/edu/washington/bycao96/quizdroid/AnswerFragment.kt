@@ -59,13 +59,7 @@ class AnswerFragment : Fragment(){
         //inflate the layout
         val view = inflater.inflate(R.layout.fragment_answer,container, false)
         //render components
-        var resultTextView : TextView = view.findViewById(R.id.textViewResult)
-        if(currAnswer===corrAnswer){
-            corrCount++
-            resultTextView.setText("correct!")
-        } else{
-            resultTextView.setText("Incorrect!")
-        }
+
 
         var currAnswerTextView : TextView = view.findViewById(R.id.textViewYourAnswer)
         currAnswerTextView.setText("Your Answer is $currAnswer")
@@ -73,21 +67,28 @@ class AnswerFragment : Fragment(){
         var corrAnswerTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
         corrAnswerTextView.setText("Correct Answer is $corrAnswer")
 
-        var answerCorrTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
-        answerCorrTextView.setText("You have $corrCount right")
+
 
         var questionLeftTextView:TextView = view.findViewById(R.id.textViewQuestionsLeft)
         var realIndex = questionIndex+1
         questionLeftTextView.setText("Progress: $realIndex / $totalQuestions")
 
-
+        var resultTextView : TextView = view.findViewById(R.id.textViewResult)
+        if(currAnswer==corrAnswer){
+            corrCount++
+            resultTextView.setText("correct!")
+        } else{
+            resultTextView.setText("Incorrect!")
+        }
+        var answerCorrTextView : TextView = view.findViewById(R.id.textViewNumberCorrect)
+        answerCorrTextView.setText("You have $corrCount right")
         //Setup the continueButton display status and next step
         var continueButton : Button = view.findViewById(R.id.buttonContinue)
         if(questionIndex==totalQuestions-1){
             continueButton.setText("Finish")
         }
         continueButton.setOnClickListener{
-            if(continueButton.text === "Finish"){
+            if(continueButton.text == "Finish"){
                 startActivity(Intent(activity, MainActivity()::class.java))
             } else {
                 (activity as answerListener).onContinueQuestion(topic, questionIndex+1, corrCount)

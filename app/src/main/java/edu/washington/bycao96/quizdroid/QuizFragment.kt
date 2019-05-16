@@ -166,7 +166,7 @@ class QuizFragment : Fragment(){
             val questionDescr: TextView = view.findViewById(R.id.questionText)
             val question = questions.getJSONObject(questionIndex).getString("Question")
             questionDescr.setText("$question")
-
+            totalQuestion = quizData.getJSONObject(topic.replace("\\s".toRegex(), "")).getInt("NumberOfQuestions")
             //construct the radiogroup view
 
             val choices = questions.getJSONObject(questionIndex).getJSONArray("Choices")
