@@ -37,7 +37,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is 2 + 2?",
         |           "Answer": "4",
-        |           "Options": [
+        |           "Choices": [
         |               "2",
         |               "8",
         |               "4",
@@ -47,7 +47,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is 5 * 4?",
         |           "Answer": "20",
-        |           "Options": [
+        |           "Choices": [
         |               "9",
         |               "25",
         |               "1",
@@ -57,7 +57,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is 14 - 7?",
         |           "Answer": "7",
-        |           "Options": [
+        |           "Choices": [
         |               "7",
         |               "21",
         |               "100",
@@ -72,7 +72,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is light?",
         |           "Answer": "a wave",
-        |           "Options": [
+        |           "Choices": [
         |               "a particle",
         |               "a wave",
         |               "an energy",
@@ -82,7 +82,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "How fast does light travel?",
         |           "Answer": "299,792,458 m/s",
-        |           "Options": [
+        |           "Choices": [
         |               "299,792,458 m/s",
         |               "466,467,938 m/s",
         |               "~1 million mph",
@@ -92,7 +92,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is the unit of measurement for force?",
         |           "Answer": "Newtons",
-        |           "Options": [
+        |           "Choices": [
         |               "grams",
         |               "Newtons",
         |               "Moles",
@@ -107,7 +107,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "Which of these is NOT a Marvel hero?",
         |           "Answer": "Wonder Woman",
-        |           "Options": [
+        |           "Choices": [
         |               "Wonder Woman",
         |               "Ant Man",
         |               "Spiderman",
@@ -117,7 +117,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is Captain Marvel's real name?",
         |           "Answer": "Carol Danvers",
-        |           "Options": [
+        |           "Choices": [
         |               "Mary Jane",
         |               "Katniss Everdeen",
         |               "Susan Johnson",
@@ -127,7 +127,7 @@ class QuizFragment : Fragment(){
         |       {
         |           "Question": "What is Thor's weapon?",
         |           "Answer": "a hammer",
-        |           "Options": [
+        |           "Choices": [
         |               "a hammer",
         |               "a sword",
         |               "a whip",

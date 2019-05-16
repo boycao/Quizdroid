@@ -25,7 +25,7 @@ class OverviewFragment : Fragment(){
             "Description": "Physics is the branch of science concerned with the nature and properties of matter and energy",
             "NumberOfQuestions": "3"
         },
-        "MarvelSuperHeroes": {
+        "Marvel": {
             "Description" : "This section covers a range of heroes from the Marvel franchise, an American media featuring various super hero films.",
             "NumberOfQuestions": "3"
         }

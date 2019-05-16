@@ -4,8 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-class QuizActivity : AppCompatActivity(), OverviewFragment.overviewListener,
-                     QuizFragment.quizListener, AnswerFragment.answerListener{
+class QuizActivity : AppCompatActivity(), OverviewFragment.overviewListener, QuizFragment.quizListener, AnswerFragment.answerListener{
     private var topic : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -77,7 +77,8 @@ class AnswerFragment : Fragment(){
         answerCorrTextView.setText("You have $corrCount right")
 
         var questionLeftTextView:TextView = view.findViewById(R.id.textViewQuestionsLeft)
-        questionLeftTextView.setText("Progress: $questionIndex / $totalQuestions")
+        var realIndex = questionIndex+1
+        questionLeftTextView.setText("Progress: $realIndex / $totalQuestions")
 
 
         //Setup the continueButton display status and next step
@@ -89,7 +90,7 @@ class AnswerFragment : Fragment(){
             if(continueButton.text === "Finish"){
                 startActivity(Intent(activity, MainActivity()::class.java))
             } else {
-                (activity as answerListener).onContinueQuestion(topic, questionIndex, corrCount)
+                (activity as answerListener).onContinueQuestion(topic, questionIndex+1, corrCount)
             }
         }
 
