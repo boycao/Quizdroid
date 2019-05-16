@@ -14,22 +14,22 @@ class MainActivity : AppCompatActivity() {
         val mathButton = findViewById<View>(R.id.buttonMath)
         mathButton.setOnClickListener(){
             val intent = Intent(this@MainActivity, QuizActivity::class.java )
-            intent.putExtra("TOPIC","Sports")
+                intent.putExtra("TOPIC","Math")
             startActivity(intent)
         }
 
 
         val physicsButton = findViewById<View>(R.id.buttonPhysics)
         physicsButton.setOnClickListener(){
-            val intent = Intent(this@MainActivity,QuizActivity::class.java)
-            intent.putExtra("TOPIC","Basketball")
+            val intent = Intent(this@MainActivity, QuizActivity::class.java)
+            intent.putExtra("TOPIC","Physics")
             startActivity(intent)
         }
 
         val marvelButton = findViewById<View>(R.id.buttonMarvel)
         marvelButton.setOnClickListener(){
-            val intent = Intent(this@MainActivity,QuizActivity::class.java)
-            intent.putExtra("TOPIC","Soccer")
+            val intent = Intent(this@MainActivity, QuizActivity::class.java)
+            intent.putExtra("TOPIC","Marvel")
             startActivity(intent)
         }
     }

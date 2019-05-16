@@ -101,7 +101,7 @@ class QuizFragment : Fragment(){
         |       }
         |   ]
         |},
-        |"MarvelSuperHeroes": {
+        |"Marvel": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
