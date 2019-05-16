@@ -9,39 +9,40 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import org.json.JSONObject
+import java.lang.RuntimeException
+
+    private const val  TOPIC = "param1"
 
 class OverviewFragment : Fragment(){
-    private val topicData : JSONObject = JSONObject("""
-        "Math":{
-            "Description" : " This is a Math quiz that helps measure your basic Math knowledge"
-            "NumberOfQuestions" : "4"
+
+
+    private val topicData: JSONObject = JSONObject("""{
+        "Math": {
+            "Description": "This quiz covers advanced topics such as addition, subtraction, multiplication, and division.",
+            "NumberOfQuestions": "3"
         },
-        "OO Programming":{
-            "Description" : " This is a Object-Oriented quiz that measures your knowledge about OO Programming"
-            "NumberOfQuestions" : "4"
+        "Physics": {
+            "Description": "Physics is the branch of science concerned with the nature and properties of matter and energy",
+            "NumberOfQuestions": "3"
         },
-        "Marvel":{
-            "Description" : " How much do you know about Marvel hero?"
-            "NumberOfQuestions" : "4"
-        },
-        "Game of Throne":{
-            "Description" : " Are you a real GoT fan?"
-            "NumberOfQuestions" : "4"
+        "MarvelSuperHeroes": {
+            "Description" : "This section covers a range of heroes from the Marvel franchise, an American media featuring various super hero films.",
+            "NumberOfQuestions": "3"
         }
-    """.trimIndent())
+    }""")
     private var topic : String = ""
-    private var totalQuestions : Int = 0
+    //private var totalQuestion : Int = 0
 
-    private var listener : beginQuizListener? = null
+    private var listener : overviewListener? = null
 
-    interface beginQuizListener{
-        fun beginQuiz()
+    interface overviewListener{
+        fun onBeginQuiz(topic: String)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            topic = it.getString(TopicName)
+            topic = it.getString(TOPIC)
         }
     }
 
@@ -53,32 +54,39 @@ class OverviewFragment : Fragment(){
         val topicTitle = view.findViewById<TextView>(R.id.textViewTopicTitle)
         topicTitle.setText("Topic: $topic")
 
-        val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("Description") as String
+        val desc = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).getString("Description")
         val descTextView = view.findViewById<TextView>(R.id.textViewTopicDescription)
         descTextView.setText("Description: \n $desc")
 
         //Number of questions set up
-        val qNum = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).get("NumberOfQuestions")
+        val qNum = topicData.getJSONObject(topic.replace("\\s".toRegex(), "")).getString("NumberOfQuestions")
         val qNumTextView = view.findViewById<TextView>(R.id.textViewQuestionNumber)
         qNumTextView.setText("The total questions number is $qNum")
 
         val beginButton = view.findViewById<Button>(R.id.buttonBegin)
 
         beginButton.setOnClickListener {
-            listener?.onBeginClicked(question_count)
+            listener?.onBeginQuiz(topic)
         }
 
         return view
 
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        listener = context as? overviewListener
+        if(listener==null){
+            throw RuntimeException("$context must implement overviewListener")
+        }
+    }
 
 
     companion object {
         fun newInstance(topic: String) =
             OverviewFragment().apply {
                 arguments = Bundle().apply {
-                    putString(TopicName, topic)
+                    putString(TOPIC, topic)
                 }
             }
     }

@@ -9,15 +9,31 @@
 
     <TextView
             android:text="Quiz Topics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/topicText" android:layout_margin="16dp"
-            tools:layout_editor_absoluteY="133dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/topicText" android:layout_margin="16dp"
+             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toTopOf="@id/buttonMath"
+            android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp" android:textSize="24sp"/>
-    <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-    </FrameLayout>
+    <Button
+            android:text="Math"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_margin="16dp" android:id="@+id/buttonMath"
+            app:layout_constraintTop_toBottomOf="@id/topicText"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp" />
+    <Button
+            android:text="Physics"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_margin="16dp"  android:id="@+id/buttonPhysics"
+            app:layout_constraintTop_toBottomOf="@id/buttonMath"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp" />
+    <Button
+            android:text="Marvel"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_margin="16dp" android:id="@+id/buttonMarvel"
+            app:layout_constraintTop_toBottomOf="@id/buttonPhysics"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp" />
 
 </android.support.constraint.ConstraintLayout>

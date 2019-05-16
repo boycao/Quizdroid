@@ -10,6 +10,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import java.lang.ClassCastException
+import java.lang.RuntimeException
+
+private const val CURRENT_ANSWER = "param1"
+private const val CORRECT_ANSWER = "param2"
+private const val CORRECT_COUNT = "param3"
+private const val TOTAL_QUESTION = "param4"
+private const val QUESTION_INDEX = "param5"
+private const val TOPIC = "param6"
 
 class AnswerFragment : Fragment(){
 
@@ -20,29 +28,29 @@ class AnswerFragment : Fragment(){
     private var corrAnswer: String = ""
     private var corrCount : Int = 0
 
-    var listener: continueQuestionListener ? = null
+    var listener: answerListener ? = null
 
-    interface continueQuestionListener{
-        fun continueQuestion()
+    interface answerListener{
+        fun onContinueQuestion(topic: String, questionIndex: Int, corrCount: Int)
     }
-    //Get the intent value
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            topic = it.getString(TopicName)
-            totalQuestions = it.getInt(TotalQuestion)
-            questionIndex = it.getInt(QuestionIndex)
-            currAnswer = it.getString(CurrAnswer)
-            corrAnswer = it.getString(CorrAnswer)
-            corrCount = it.getInt(CorrCount)
+            topic = it.getString(TOPIC)
+            totalQuestions = it.getInt(TOTAL_QUESTION)
+            questionIndex = it.getInt(QUESTION_INDEX)
+            currAnswer = it.getString(CURRENT_ANSWER)
+            corrAnswer = it.getString(CORRECT_ANSWER)
+            corrCount = it.getInt(CORRECT_COUNT)
         }
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        listener = context as? continueQuestionListener
+        listener = context as? answerListener
         if(listener == null) {
-            throw ClassCastException("$context didn't trigger continueQuestionListener")
+            throw RuntimeException("$context must implement answerListener")
 
         }
     }
@@ -51,38 +59,55 @@ class AnswerFragment : Fragment(){
         //inflate the layout
         val view = inflater.inflate(R.layout.fragment_answer,container, false)
         //render components
-        var currAnswerTextView : TextView = view.findViewById(R.id.textViewYourAnswer)
-        var corrAnswerTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
+        var resultTextView : TextView = view.findViewById(R.id.textViewResult)
+        if(currAnswer===corrAnswer){
+            corrCount++
+            resultTextView.setText("correct!")
+        } else{
+            resultTextView.setText("Incorrect!")
+        }
 
+        var currAnswerTextView : TextView = view.findViewById(R.id.textViewYourAnswer)
+        currAnswerTextView.setText("Your Answer is $currAnswer")
+
+        var corrAnswerTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
+        corrAnswerTextView.setText("Correct Answer is $corrAnswer")
+
+        var answerCorrTextView : TextView = view.findViewById(R.id.textViewCorrectAnswer)
+        answerCorrTextView.setText("You have $corrCount right")
+
+        var questionLeftTextView:TextView = view.findViewById(R.id.textViewQuestionsLeft)
+        questionLeftTextView.setText("Progress: $questionIndex / $totalQuestions")
 
 
         //Setup the continueButton display status and next step
         var continueButton : Button = view.findViewById(R.id.buttonContinue)
-        if(questionIndex==totalQuestions)
+        if(questionIndex==totalQuestions-1){
             continueButton.setText("Finish")
-
+        }
         continueButton.setOnClickListener{
-            if(questionIndex==totalQuestions)
+            if(continueButton.text === "Finish"){
                 startActivity(Intent(activity, MainActivity()::class.java))
-            else (activity as continueQuestionListener).continueQuestion()
+            } else {
+                (activity as answerListener).onContinueQuestion(topic, questionIndex, corrCount)
+            }
         }
 
         return view
     }
-
+    //Pass the variable
     companion object {
+        @JvmStatic
         fun newInstance(topic : String, totalQuestion : Int , questionIndex : Int,  currAnswer : String,
-                        corrAnswer: String) : AnswerFragment {
-            val answerFragment = AnswerFragment()
-            answerFragment.arguments = Bundle().apply {
-                putString("Topic", topic)
-                putInt("TotalQuestions", totalQuestion)
-                putInt("QuestionIndex",questionIndex)
-                putString("")
+                        corrAnswer: String, corrCount: Int) = AnswerFragment().apply {
+            arguments = Bundle().apply {
+                putString(TOPIC, topic)
+                putInt(TOTAL_QUESTION, totalQuestion)
+                putInt(QUESTION_INDEX,questionIndex)
+                putString(CURRENT_ANSWER,currAnswer)
+                putString(CORRECT_ANSWER,corrAnswer)
+                putInt(CORRECT_COUNT,corrCount)
             }
-
-
-
         }
     }
 
