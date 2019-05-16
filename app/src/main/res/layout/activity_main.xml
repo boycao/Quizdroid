@@ -17,8 +17,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="308dp"
-            tools:layout_editor_absoluteX="0dp"
+            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
             >
         <Button
                 android:text="Math"
@@ -29,10 +28,6 @@
                 android:text="Programming"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/buttonProgramming"/>
-        <Button
-                android:text="Game of Throne"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonGoT"/>
         <Button
                 android:text="Marvel"
                 android:layout_width="match_parent"

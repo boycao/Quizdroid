@@ -5,234 +5,150 @@ import android.os.Bundle
 import android.support.annotation.VisibleForTesting
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Integer.parseInt
 
 class QuizActivity : AppCompatActivity(){
+    private  val TAG = "QuizActivity"
     //Use JSON for the quizData
-    private val quizData : JSONObject = JSONObject("""{
-        |"Math":{
-        |   "NumberOfQuestions" : "4",
-        |   "Questions" : [
-        |   {
-        |      "Question" : "Whats is the square of 16?",
-        |      "Answer"   : "4",
-        |      "Choices"  :[
-        |           "2",
-        |           "4",
-        |           "6",
-        |           "8"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the 5 times 6?",
-        |      "Answer"   : "30",
-        |      "Choices"  :[
-        |           "18",
-        |           "26",
-        |           "30",
-        |           "35"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the log 2 of 32?",
-        |      "Answer"   : "5",
-        |      "Choices"  :[
-        |           "2",
-        |           "3",
-        |           "4",
-        |           "5"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is 10 plus 29?",
-        |      "Answer"   : "39",
-        |      "Choices"  :[
-        |           "29",
-        |           "39",
-        |           "49",
-        |           "59"
-        |      ]
-        |
-        |   }]
+    private  val quizData: JSONObject = JSONObject("""{
+        |"Math": {
+        |   "NumberOfQuestions": "3",
+        |   "Questions": [
+        |       {
+        |           "Question": "What is 2 + 2?",
+        |           "Answer": "4",
+        |           "Choices": [
+        |               "2",
+        |               "8",
+        |               "4",
+        |               "13"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "What is 5 * 4?",
+        |           "Answer": "20",
+        |           "Choices": [
+        |               "9",
+        |               "25",
+        |               "1",
+        |               "20"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "What is 14 - 7?",
+        |           "Answer": "7",
+        |           "Choices": [
+        |               "7",
+        |               "21",
+        |               "100",
+        |               "4"
+        |           ]
+        |       }
+        |   ]
         |},
-        ||"Programming":{
-        |   "NumberOfQuestions" : "4",
-        |   "Questions" : [
-        |   {
-        |      "Question" : "Whats is ?",
-        |      "Answer"   : "4",
-        |      "Choices"  :[
-        |           "2",
-        |           "4",
-        |           "6",
-        |           "8"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the 5 times 6?",
-        |      "Answer"   : "30",
-        |      "Choices"  :[
-        |           "18",
-        |           "26",
-        |           "30",
-        |           "35"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the log 2 of 32?",
-        |      "Answer"   : "5",
-        |      "Choices"  :[
-        |           "2",
-        |           "3",
-        |           "4",
-        |           "5"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is 10 plus 29?",
-        |      "Answer"   : "39",
-        |      "Choices"  :[
-        |           "29",
-        |           "39",
-        |           "49",
-        |           "59"
-        |      ]
-        |
-        |   }]
+        |"Code": {
+        |   "NumberOfQuestions": "3",
+        |   "Questions": [
+        |       {
+        |           "Question": "What is light?",
+        |           "Answer": "a wave",
+        |           "Choices": [
+        |               "a particle",
+        |               "a wave",
+        |               "an energy",
+        |               "fire"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "How fast does light travel?",
+        |           "Answer": "299,792,458 m/s",
+        |           "Choices": [
+        |               "299,792,458 m/s",
+        |               "466,467,938 m/s",
+        |               "~1 million mph",
+        |               "552,375 mph"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "What is the unit of measurement for force?",
+        |           "Answer": "Newtons",
+        |           "Choices": [
+        |               "grams",
+        |               "Newtons",
+        |               "Moles",
+        |               "Kelvin"
+        |           ]
+        |       }
+        |   ]
         |},
-        ||"GoT":{
-        |   "NumberOfQuestions" : "4",
-        |   "Questions" : [
-        |   {
-        |      "Question" : "Whats is the square of 16?",
-        |      "Answer"   : "4",
-        |      "Choices"  :[
-        |           "2",
-        |           "4",
-        |           "6",
-        |           "8"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the 5 times 6?",
-        |      "Answer"   : "30",
-        |      "Choices"  :[
-        |           "18",
-        |           "26",
-        |           "30",
-        |           "35"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the log 2 of 32?",
-        |      "Answer"   : "5",
-        |      "Choices"  :[
-        |           "2",
-        |           "3",
-        |           "4",
-        |           "5"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is 10 plus 29?",
-        |      "Answer"   : "39",
-        |      "Choices"  :[
-        |           "29",
-        |           "39",
-        |           "49",
-        |           "59"
-        |      ]
-        |
-        |   }]
-        |},
-        |"Marvel":{
-        |   "NumberOfQuestions" : "4",
-        |   "Questions" : [
-        |   {
-        |      "Question" : "Whats is the square of 16?",
-        |      "Answer"   : "4",
-        |      "Choices"  :[
-        |           "2",
-        |           "4",
-        |           "6",
-        |           "8"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the 5 times 6?",
-        |      "Answer"   : "30",
-        |      "Choices"  :[
-        |           "18",
-        |           "26",
-        |           "30",
-        |           "35"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is the log 2 of 32?",
-        |      "Answer"   : "5",
-        |      "Choices"  :[
-        |           "2",
-        |           "3",
-        |           "4",
-        |           "5"
-        |      ]
-        |
-        |   },
-        |   {
-        |      "Question" : "Whats is 10 plus 29?",
-        |      "Answer"   : "39",
-        |      "Choices"  :[
-        |           "29",
-        |           "39",
-        |           "49",
-        |           "59"
-        |      ]
-        |
-        |   }]
+        |"Marvel": {
+        |   "NumberOfQuestions": "3",
+        |   "Questions": [
+        |       {
+        |           "Question": "Which of these is NOT a Marvel hero?",
+        |           "Answer": "Wonder Woman",
+        |           "Choices": [
+        |               "Wonder Woman",
+        |               "Ant Man",
+        |               "Spiderman",
+        |               "Thor"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "What is Captain Marvel's real name?",
+        |           "Answer": "Carol Danvers",
+        |           "Choices": [
+        |               "Mary Jane",
+        |               "Katniss Everdeen",
+        |               "Susan Johnson",
+        |               "Carol Danvers"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "What is Thor's weapon?",
+        |           "Answer": "a hammer",
+        |           "Choices": [
+        |               "a hammer",
+        |               "a sword",
+        |               "a whip",
+        |               "nunchucks"
+        |           ]
+        |       }
+        |   ]
         |}
-
-    """.trimMargin())
+    }""".trimMargin())
     // Specify the topicname, totalquestion number, correctanswer number, currentquestion index, currentanswer, correctanswer
-    private var topic : String = ""
+
+    private var topicName : String = ""
     private var numberCorrect : Int = 0
     private var currentIndex : Int = 0
     private var currentAnswer : String = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
         //get the quiz topic value from the intent
-        topic = getIntent().getStringExtra("TOPIC")
+        val topic = getIntent().getStringExtra("TOPIC")
         // setup the topicNameView and assign the topic name to the view
         val topicNameView: TextView = findViewById(R.id.textViewQuizTopic)
         topicNameView.setText(topic)
-
+        topicName = topic;
         // Parse in the specific question set for the intent name topic
-        val questions = quizData.getJSONObject(topic).getJSONArray("Questions")
+        val questions = quizData.getJSONObject(topicName.replace("\\s".toRegex(), "")).getJSONArray("Questions")
 
         //Setup the questionDescription
         val questionView: TextView = findViewById(R.id.textViewQuestionDesc)
-        val question = questions.getJSONObject(currentIndex).getJSONObject("Question") as String
+        val question = questions.getJSONObject(currentIndex).getString("Question")
         questionView.setText("$question")
 
         //Setup the RadioGroup for Choices
+        //val questions = quizData.getJSONObject(topicName.replace("\\s".toRegex(), "")).getJSONArray("Questions")
         currentIndex = getIntent().getIntExtra("QUESTION_INDEX", 0)
         val choiceArray = questions.getJSONObject(currentIndex).getJSONArray("Choices")
         val choice1 : RadioButton = findViewById(R.id.buttonChoice1)
@@ -255,30 +171,39 @@ class QuizActivity : AppCompatActivity(){
 
         }))
 
-        //Prepare for the output intent, totalquestions, correctanswer, youranswer, result, correctnumber, index
-        val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
+        submitButton.setOnClickListener {
+            val intent = Intent(this@QuizActivity,AnswerActivity::class.java)
 
-        intent.putExtra("TOPIC", topic)
+            intent.putExtra("TOPIC", topicName)
 
-        intent.putExtra("YOUR_ANSWER", currentAnswer)
+            intent.putExtra("YOUR_ANSWER", currentAnswer)
 
-        var correctAnswer = questions.getJSONObject(currentIndex).getJSONObject("Answer") as String
-        numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
-        if(currentAnswer.equals(correctAnswer)){
-            numberCorrect ++
-            intent.putExtra("RESULT", "Correct!")
-        }else{
-            intent.putExtra("RESULT", "Incorrect!")
+            var correctAnswer : String = questions.getJSONObject(currentIndex).getString("Answer")
+            numberCorrect = getIntent().getIntExtra("NUMBER_CORRECT", 0)
+            if(currentAnswer.equals(correctAnswer)){
+                numberCorrect ++
+                intent.putExtra("RESULT", "Correct!")
+            }else{
+                intent.putExtra("RESULT", "Incorrect!")
+            }
+
+            intent.putExtra("CORRECT_ANSWER", correctAnswer)
+
+            var totalQuestions = quizData.getJSONObject(topicName).getString("NumberOfQuestions")
+            intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
+
+
+            intent.putExtra("NUMBER_CORRECT", numberCorrect)
+
+
+            startActivity(intent)
+
+            Log.e(TAG,topicName)
         }
-        intent.putExtra("CORRECT_ANSWER", correctAnswer)
-
-        var totalQuestions = quizData.getJSONObject(topic).getJSONObject("NumberOfQuestions") as String
-        intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
 
 
-        intent.putExtra("NUMBER_CORRECT", numberCorrect)
 
 
-        startActivity(intent)
         }
+
     }

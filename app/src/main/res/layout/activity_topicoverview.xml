@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
     <TextView
             android:text="Topic Name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="130dp"
-            tools:layout_editor_absoluteX="143dp" android:id="@+id/textViewTopicName"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewTopicName"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/textViewTopicDescription"/>
     <TextView
             android:text="Topic Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewTopicDescription"
-            tools:layout_editor_absoluteY="227dp"
-            tools:layout_editor_absoluteX="143dp"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTopicName" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewQuestionNumber"/>
     <TextView
             android:text="Number of Questions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewQuestionNumber"
-            tools:layout_editor_absoluteY="319dp"
-            tools:layout_editor_absoluteX="138dp"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTopicDescription"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/buttonBegin"/>
     <Button
             android:text="Begin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/buttonBegin" tools:layout_editor_absoluteY="490dp"
-            tools:layout_editor_absoluteX="150dp"/>
+            android:layout_height="wrap_content" android:id="@+id/buttonBegin"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewQuestionNumber"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
