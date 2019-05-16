@@ -11,14 +11,15 @@
             android:text="Quiz Topics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/topicText" android:layout_margin="16dp"
-            tools:layout_editor_absoluteY="133dp" app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="143dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="32dp" android:textSize="24sp"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="261dp"
-            tools:layout_editor_absoluteX="0dp">
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="308dp"
+            tools:layout_editor_absoluteX="0dp"
+            >
         <Button
                 android:text="Math"
                 android:layout_width="match_parent"
