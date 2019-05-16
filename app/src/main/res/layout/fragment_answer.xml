@@ -9,42 +9,47 @@
             android:text="Result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewResult"
-            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="60dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@id/textViewYourAnswer"
             android:textSize="24sp"/>
     <TextView
             android:text="Your Answer"
             android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textViewYourAnswer"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewCorrectAnswer" android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewResult"
+            app:layout_constraintBottom_toTopOf="@id/textViewCorrectAnswer" android:layout_margin="32dp"
             android:textSize="24sp"/>
     <TextView
             android:text="Correct Answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewCorrectAnswer"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewNumberCorrect" android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewYourAnswer"
+            app:layout_constraintBottom_toTopOf="@id/textViewNumberCorrect" android:layout_margin="32dp"
             android:textSize="24sp"/>
     <TextView
             android:text="Number Correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewNumberCorrect"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewQuestionsLeft" android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewCorrectAnswer"
+            app:layout_constraintBottom_toTopOf="@id/textViewQuestionsLeft" android:layout_margin="32dp"
             android:textSize="24sp"/>
     <TextView
             android:text="Questions Left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textViewQuestionsLeft"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/buttonContinue" android:layout_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewQuestionsLeft"
+            app:layout_constraintBottom_toTopOf="@id/buttonContinue" android:layout_margin="32dp"
             android:textSize="24sp"/>
     <Button
             android:text="Continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"  android:id="@+id/buttonContinue"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewQuestionsLeft"  android:layout_marginBottom="48dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewQuestionsLeft"  android:layout_marginTop="32dp"
             android:textSize="24sp"/>
 
 </android.support.constraint.ConstraintLayout>

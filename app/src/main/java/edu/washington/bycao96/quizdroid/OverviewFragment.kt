@@ -18,15 +18,15 @@ class OverviewFragment : Fragment(){
 
     private val topicData: JSONObject = JSONObject("""{
         "Math": {
-            "Description": "This quiz covers advanced topics such as addition, subtraction, multiplication, and division.",
+            "Description": "This quiz tests your math ability.",
             "NumberOfQuestions": "3"
         },
         "Physics": {
-            "Description": "Physics is the branch of science concerned with the nature and properties of matter and energy",
+            "Description": "This is a physics quiz",
             "NumberOfQuestions": "3"
         },
         "Marvel": {
-            "Description" : "This section covers a range of heroes from the Marvel franchise, an American media featuring various super hero films.",
+            "Description" : "How much do you know about marvel heroes.",
             "NumberOfQuestions": "3"
         }
     }""")

@@ -35,33 +35,33 @@ class QuizFragment : Fragment(){
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "What is 2 + 2?",
-        |           "Answer": "4",
+        |           "Question": "What is square 5?",
+        |           "Answer": "25",
         |           "Choices": [
-        |               "2",
-        |               "8",
-        |               "4",
-        |               "13"
-        |           ]
-        |       },
-        |       {
-        |           "Question": "What is 5 * 4?",
-        |           "Answer": "20",
-        |           "Choices": [
-        |               "9",
+        |               "12",
+        |               "16",
         |               "25",
-        |               "1",
-        |               "20"
+        |               "64"
         |           ]
         |       },
         |       {
-        |           "Question": "What is 14 - 7?",
-        |           "Answer": "7",
+        |           "Question": "Which one is a triangle?",
+        |           "Answer": "2,2,2",
+        |           "Choices": [
+        |               "1,2,3",
+        |               "2,2,2",
+        |               "10,1,1",
+        |               "4,5,6"
+        |           ]
+        |       },
+        |       {
+        |           "Question": "Which is the elements of 24?",
+        |           "Answer": "8",
         |           "Choices": [
         |               "7",
-        |               "21",
-        |               "100",
-        |               "4"
+        |               "9",
+        |               "13",
+        |               "8"
         |           ]
         |       }
         |   ]
@@ -70,33 +70,33 @@ class QuizFragment : Fragment(){
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "What is light?",
-        |           "Answer": "a wave",
+        |           "Question": "Electric current may be expressed in which one of the following units?",
+        |           "Answer": "coulombs/second",
         |           "Choices": [
-        |               "a particle",
-        |               "a wave",
-        |               "an energy",
-        |               "fire"
+        |               "coulombs/volt",
+        |               "joules/coulomb",
+        |               "coulombs/second",
+        |               "ohms/second"
         |           ]
         |       },
         |       {
-        |           "Question": "How fast does light travel?",
-        |           "Answer": "299,792,458 m/s",
+        |           "Question": "A Newton is equal to which of the following?",
+        |           "Answer": "kilogram-meter per second squared",
         |           "Choices": [
-        |               "299,792,458 m/s",
-        |               "466,467,938 m/s",
-        |               "~1 million mph",
-        |               "552,375 mph"
+        |               "kilogram-meter per second",
+        |               "meter per second squared",
+        |               "kilogram-meter per second squared",
+        |               "kilogram per meter-second"
         |           ]
         |       },
         |       {
-        |           "Question": "What is the unit of measurement for force?",
-        |           "Answer": "Newtons",
+        |           "Question": "For an object moving in uniform circular motion, the direction of the instantaneous acceleration vector is:",
+        |           "Answer": "directed radially inward",
         |           "Choices": [
-        |               "grams",
-        |               "Newtons",
-        |               "Moles",
-        |               "Kelvin"
+        |               "tangent to the path of motion",
+        |               "equal to zero",
+        |               "directed radially outward",
+        |               "directed radially inward"
         |           ]
         |       }
         |   ]
@@ -105,33 +105,33 @@ class QuizFragment : Fragment(){
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "Which of these is NOT a Marvel hero?",
-        |           "Answer": "Wonder Woman",
+        |           "Question": "Who kills Frigga in 'Thor: The Dark World'?",
+        |           "Answer": "Kurse",
         |           "Choices": [
-        |               "Wonder Woman",
-        |               "Ant Man",
-        |               "Spiderman",
-        |               "Thor"
+        |               "Kurse",
+        |               "Malekith",
+        |               "Jane Foster",
+        |               "Loki"
         |           ]
         |       },
         |       {
-        |           "Question": "What is Captain Marvel's real name?",
-        |           "Answer": "Carol Danvers",
+        |           "Question": "What was Sam Wilson before he became Falcon?",
+        |           "Answer": "Pararescue",
         |           "Choices": [
-        |               "Mary Jane",
-        |               "Katniss Everdeen",
-        |               "Susan Johnson",
-        |               "Carol Danvers"
+        |               "Navy Seal",
+        |               "Pararescue",
+        |               "Pilot",
+        |               "Professional daredevil"
         |           ]
         |       },
         |       {
-        |           "Question": "What is Thor's weapon?",
-        |           "Answer": "a hammer",
+        |           "Question": "In 'Iron Man 2,' what supposedly bunker-busting smart missile fizzled when War Machine tried to use it?",
+        |           "Answer": "Ex-Wife",
         |           "Choices": [
-        |               "a hammer",
-        |               "a sword",
-        |               "a whip",
-        |               "nunchucks"
+        |               "Sidewinder",
+        |               "Jericho Missile",
+        |               "Ex-Wife",
+        |               "Hulk Buster"
         |           ]
         |       }
         |   ]
