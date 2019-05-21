@@ -20,107 +20,107 @@ class QuizActivity : AppCompatActivity(){
 
     //Use JSON for the quizData
     private  val quizData: JSONObject = JSONObject("""{
-        |"Sports": {
+         |"Math": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "Which of the following is not an extreme sport?",
-        |           "Answer": "Gymnastics",
+        |           "Question": "What is square 5?",
+        |           "Answer": "25",
         |           "Choices": [
-        |               "Gymnastics",
-        |               "Rock Climbing",
-        |               "Skateboarding",
-        |               "Dirt Biking"
+        |               "12",
+        |               "16",
+        |               "25",
+        |               "64"
         |           ]
         |       },
         |       {
-        |           "Question": "Which of the following athletes is incorrectly matched with his sport?",
-        |           "Answer": "Muhammad Ali - Football",
+        |           "Question": "Which one is a triangle?",
+        |           "Answer": "2,2,2",
         |           "Choices": [
-        |               "Muhammad Ali - Football",
-        |               "Babe Ruth - Baseball",
-        |               "Michael Jordan - Basketball",
-        |               "Wayne Gretzky - Ice Hockey"
+        |               "1,2,3",
+        |               "2,2,2",
+        |               "10,1,1",
+        |               "4,5,6"
         |           ]
         |       },
         |       {
-        |           "Question": "Based on the number of people who play it, what is the most popular sport in the world?",
-        |           "Answer": "Soccer",
+        |           "Question": "Which is the elements of 24?",
+        |           "Answer": "8",
         |           "Choices": [
-        |               "Soccer",
-        |               "Golf",
-        |               "Basketball",
-        |               "Bowling"
+        |               "7",
+        |               "9",
+        |               "13",
+        |               "8"
         |           ]
         |       }
         |   ]
         |},
-        |"Basketball": {
+        |"Physics": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "Where do you go, if you get fouled in the act of shooting?",
-        |           "Answer": "Free throw line",
+        |           "Question": "Electric current may be expressed in which one of the following units?",
+        |           "Answer": "coulombs/second",
         |           "Choices": [
-        |               "The Bench",
-        |               "Three point line",
-        |               "Free throw line",
-        |               "Half court line"
+        |               "coulombs/volt",
+        |               "joules/coulomb",
+        |               "coulombs/second",
+        |               "ohms/second"
         |           ]
         |       },
         |       {
-        |           "Question": "The ball-handler takes three steps without dribbling, what violation did he commit?",
-        |           "Answer": "Traveling",
+        |           "Question": "A Newton is equal to which of the following?",
+        |           "Answer": "kilogram-meter per second squared",
         |           "Choices": [
-        |               "Double dribble",
-        |               "Traveling",
-        |               "Goaltending",
-        |               "Carrying"
+        |               "kilogram-meter per second",
+        |               "meter per second squared",
+        |               "kilogram-meter per second squared",
+        |               "kilogram per meter-second"
         |           ]
         |       },
         |       {
-        |           "Question": "Since the 1955-1956 season, the NBA has given out the Most Valuable Player award. Who won the award for the 2008-2009 NBA season?",
-        |           "Answer": "Kobe Bryant",
+        |           "Question": "For an object moving in uniform circular motion, the direction of the instantaneous acceleration vector is:",
+        |           "Answer": "directed radially inward",
         |           "Choices": [
-        |               "Kobe Bryant",
-        |               "Dwight Howard",
-        |               "Kevin Garnett",
-        |               "Lebron James"
+        |               "tangent to the path of motion",
+        |               "equal to zero",
+        |               "directed radially outward",
+        |               "directed radially inward"
         |           ]
         |       }
         |   ]
         |},
-        |"Soccer": {
+        |"Marvel": {
         |   "NumberOfQuestions": "3",
         |   "Questions": [
         |       {
-        |           "Question": "Which club have won the most Serie A titles?",
-        |           "Answer": "Juventus",
+        |           "Question": "Who kills Frigga in 'Thor: The Dark World'?",
+        |           "Answer": "Kurse",
         |           "Choices": [
-        |               "Rome",
-        |               "Milan",
-        |               "Internazionale",
-        |               "Juventus"
+        |               "Kurse",
+        |               "Malekith",
+        |               "Jane Foster",
+        |               "Loki"
         |           ]
         |       },
         |       {
-        |           "Question": "Lionel Messi was born in which city?",
-        |           "Answer": "Buenos Aires",
+        |           "Question": "What was Sam Wilson before he became Falcon?",
+        |           "Answer": "Pararescue",
         |           "Choices": [
-        |               "Rosario",
-        |               "Buenos Aires",
-        |               "Barcelona",
-        |               "Cordoba"
+        |               "Navy Seal",
+        |               "Pararescue",
+        |               "Pilot",
+        |               "Professional daredevil"
         |           ]
         |       },
         |       {
-        |           "Question": "In what year did a Dutch team last win a European club competition?",
-        |           "Answer": "2013",
+        |           "Question": "In 'Iron Man 2,' what supposedly bunker-busting smart missile fizzled when War Machine tried to use it?",
+        |           "Answer": "Ex-Wife",
         |           "Choices": [
-        |               "1978",
-        |               "1997",
-        |               "2002",
-        |               "2013"
+        |               "Sidewinder",
+        |               "Jericho Missile",
+        |               "Ex-Wife",
+        |               "Hulk Buster"
         |           ]
         |       }
         |   ]

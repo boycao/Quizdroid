@@ -14,28 +14,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sportsButton = findViewById<View>(R.id.buttonSports)
-        sportsButton.setOnClickListener(){
-            val sportsIntent = Intent(this@MainActivity, TopicOverviewActivity::class.java )
-            sportsIntent.putExtra("TOPIC","Sports")
-            startActivity(sportsIntent)
+        val mathButton = findViewById<View>(R.id.buttonMath)
+        mathButton.setOnClickListener(){
+            val intent = Intent(this@MainActivity, QuizActivity::class.java )
+            intent.putExtra("TOPIC","Math")
+            startActivity(intent)
         }
 
 
-        val basketballButton = findViewById<View>(R.id.buttonBasketball)
-        basketballButton.setOnClickListener(){
-            val basketballIntent = Intent(this@MainActivity,TopicOverviewActivity::class.java)
-            basketballIntent.putExtra("TOPIC","Basketball")
-            startActivity(basketballIntent)
+        val physicsButton = findViewById<View>(R.id.buttonPhysics)
+        physicsButton.setOnClickListener(){
+            val intent = Intent(this@MainActivity, QuizActivity::class.java)
+            intent.putExtra("TOPIC","Physics")
+            startActivity(intent)
         }
 
-        val soccerButton = findViewById<View>(R.id.buttonSoccer)
-        soccerButton.setOnClickListener(){
-            val soccerIntent = Intent(this@MainActivity,TopicOverviewActivity::class.java)
-            soccerIntent.putExtra("TOPIC","Soccer")
-            startActivity(soccerIntent)
+        val marvelButton = findViewById<View>(R.id.buttonMarvel)
+        marvelButton.setOnClickListener(){
+            val intent = Intent(this@MainActivity, QuizActivity::class.java)
+            intent.putExtra("TOPIC","Marvel")
+            startActivity(intent)
         }
-        Log.e(TAG,"Main")
 
     }
 }

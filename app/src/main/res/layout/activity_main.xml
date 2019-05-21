@@ -25,18 +25,18 @@
             app:layout_constraintTop_toBottomOf="@+id/topicText" app:layout_constraintBottom_toBottomOf="parent"
             >
         <Button
-                android:text="Sports"
+                android:text="Math"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonSports"
+                android:layout_height="wrap_content" android:id="@+id/buttonMath"
         />
         <Button
-                android:text="Basketball"
+                android:text="Physics"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonBasketball"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonPhysics"/>
         <Button
-                android:text="Soccer"
+                android:text="Marvek"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/buttonSoccer"/>
+                android:layout_height="wrap_content" android:id="@+id/buttonMarvel"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

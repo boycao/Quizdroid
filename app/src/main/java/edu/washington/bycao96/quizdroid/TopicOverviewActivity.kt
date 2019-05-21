@@ -17,17 +17,17 @@ class TopicOverviewActivity : AppCompatActivity(){
     //Declare the global variable
     private  val TAG = "TopicActivity"
     private val topicData : JSONObject = JSONObject("""{
-        "Sports":{
-            "Description" : " This is a general sports quiz",
-            "NumberOfQuestions" : "3"
+        "Math": {
+            "Description": "This quiz tests your math ability.",
+            "NumberOfQuestions": "3"
         },
-        "Basketball":{
-            "Description" : " This is a basketball fan quiz",
-            "NumberOfQuestions" : "3"
+        "Physics": {
+            "Description": "This is a physics quiz",
+            "NumberOfQuestions": "3"
         },
-        "Soccer":{
-            "Description" : " How much do you know about Soccer?",
-            "NumberOfQuestions" : "3"
+        "Marvel": {
+            "Description" : "How much do you know about marvel heroes.",
+            "NumberOfQuestions": "3"
         }
     }""".trimIndent())
     private var topicName : String = ""
